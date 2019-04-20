@@ -1,0 +1,90 @@
+# Vim-style keybindings for Tig
+
+set blame-view    = date:relative-compact author:abbreviated file-name:auto id:yes,color line-number:no,interval=5 text
+set grep-view     = file-name:no line-number:yes,interval=1 text
+set main-view     = line-number:yes,interval=5 id:yes date:relative-compact author:abbreviated commit-title:yes,graph,refs,overflow=no
+set refs-view     = line-number:no id:yes date:relative-compact author:abbreviated ref commit-title
+set stash-view    = line-number:yes,interval=5 id:no date:relative-compact author:abbreviated commit-title
+set status-view   = line-number:yes,interval=5 status:short file-name
+set tree-view     = line-number:yes,interval=5 mode author:abbreviated file-size date:relative-compact id:yes file-name
+
+# Pager based views
+set pager-view    = line-number:no,interval=5 text
+set stage-view    = line-number:no,interval=5 text
+set log-view      = line-number:no,interval=5 text
+set blob-view     = line-number:no,interval=5 text
+set diff-view     = line-number:no,interval=5 text:yes,commit-title-overflow=no
+
+set wrap-lines    = no
+set tab-size      = 2
+#set line-graphics = utf-8
+
+bind generic  h           scroll-left
+bind generic  j           move-down
+bind generic  k           move-up
+bind generic  l           scroll-right
+bind generic  <C-f>       move-page-down
+bind generic  <C-b>       move-page-up
+bind generic  <C-w><C-w>  view-next
+
+bind generic  g           none
+bind generic  gg          move-first-line
+bind main     G           move-last-line
+bind generic  G           move-last-line
+
+bind generic  m           none
+bind generic  d           none
+bind generic  l           none
+bind generic  t           none
+bind generic  f           none
+bind generic  b           none
+bind generic  r           none
+bind generic  p           none
+bind generic  h           none
+bind generic  s           none
+bind generic  S           none
+bind generic  c           none
+bind generic  y           none
+bind generic  g           none
+bind generic  o           none
+bind generic  yy          !@sh -c "echo -n %(commit) | xclip -selection c"
+
+bind generic  v           none
+bind generic  vm          view-main
+bind generic  vd          view-diff
+bind generic  vl          view-log
+bind generic  vt          view-tree
+bind generic  vf          view-blob
+bind generic  vb          view-blame
+bind generic  vr          view-refs
+bind generic  vp          view-pager
+bind generic  vh          view-help
+bind generic  vs          view-status
+bind generic  vS          view-status
+bind generic  vc          view-stage
+bind generic  vy          view-stash
+bind generic  vg          view-grep
+
+bind main     C           none
+bind status   C           none
+bind stash    A           none
+bind stash    P           none
+bind stash    !           none
+bind refs     C           none
+bind refs     !           none
+bind status   !           none
+bind stage    !           none
+
+bind generic  c           none
+
+bind status   cm          !git commit
+bind status   ca          !git commit --amend
+bind main     cp          ?git cherry-pick %(commit)
+bind main     cb          !git checkout -b %(prompt)
+bind refs     cb          !git checkout -b %(prompt)
+bind stash    ss          ?git stash save %(stash)
+bind stash    sp          ?git stash pop %(stash)
+bind main     co          ?git checkout %(commit)
+bind refs     co          ?git checkout %(branch)
+bind main     M           ?git merge %(branch)
+bind refs     M           ?git merge %(branch)

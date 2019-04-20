@@ -1,0 +1,48 @@
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+hook_add = '''
+  let g:rust_recommended_style=0
+  let g:rustfmt_command='/usr/bin/rustfmt'
+'''
+
+[[plugins]]
+repo = 'sebastianmarkow/deoplete-rust'
+depends = ['deoplete.nvim']
+on_ft = 'rust'
+hook_add = '''
+  nmap <buffer> gd <plug>DeopleteRustGoToDefinitionDefault
+  " Set fully qualified path to racer binary. If it is in your PATH already use which racer. (required)
+  let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
+  " Set Rust source code path (when cloning from Github usually ending on /src). (required)
+  let g:deoplete#sources#rust#rust_source_path='/usr/src/rust/src'
+  " To disable default key mappings (gd & K) add the following
+  let g:deoplete#sources#rust#disable_keymap=1
+  " Set max height of documentation split.
+  let g:deoplete#sources#rust#documentation_max_height=20
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+depends = ['neosnippet-snippets']
+on_event = 'InsertCharPre'
+on_ft = 'snippet'
+hook_source = '''
+  imap <C-k>    <Plug>(neosnippet_expand_or_jump)
+  smap <C-k>    <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k>    <Plug>(neosnippet_expand_target)
+'''
+
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'Shougo/vinarise.vim'
+on_ft = ['hex', 'no ft']
+hook_add = '''
+'''

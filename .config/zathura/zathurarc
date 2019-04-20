@@ -1,0 +1,12 @@
+set selection-clipboard clipboard
+set statusbar-bg "#AAAA11"
+set statusbar-fg "#000000"
+set recolor-darkcolor "#000000"
+set recolor-lightcolor "#AAAAAA"
+set recolor true
+
+map a adjust_window best-fit
+map w adjust_window width
+
+map [fullscreen] f follow
+map [fullscreen] <Tab> toggle_index
