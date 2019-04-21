@@ -27,8 +27,8 @@ hook_add = '''
   let g:brightest#highlight={
         \   "group" : "BrightestUnderline",
         \ }
-  let g:brightest#pattern='\w\+'
-  let g:brightest#enable_on_CursorHold=1
+  let g:brightest#pattern='\w\{2,}'
+  let g:brightest#enable_on_CursorHold=0
 '''
 
 [[plugins]]
@@ -58,7 +58,7 @@ hook_add = '''
   \ 'InsertLeave': {},
   \ 'BufWritePost': {'delay': 0},
   \ 'BufWinEnter': {},
-  \ }, 500)
+  \ }, 100)
 
   let g:neomake_verilog_enabled_makers=['verilator']
   let g:neomake_verilog_verilator_maker={
@@ -75,6 +75,20 @@ hook_add = '''
   let g:neomake_warning_sign={'text': 'W', 'texthl': 'NeomakeWarningSign'}
   let g:neomake_message_sign={'text': 'm', 'texthl': 'NeomakeMessageSign'}
   let g:neomake_info_sign={'text': 'i', 'texthl': 'NeomakeInfoSign'}
+
+  " mappings for location list
+  nnoremap Q  :lopen<CR>
+  autocmd FileType qf call s:ll_mappings()
+  function! s:ll_mappings() abort
+    let wi = getwininfo(win_getid())[0]
+    if !wi.loclist
+      return
+    endif
+    nnoremap <silent><buffer> Q     :lclose<CR>
+    nnoremap <silent><buffer> <CR>  <CR>:lclose<CR>
+    nnoremap <silent><buffer> j     :lnext<CR>:lopen<CR>
+    nnoremap <silent><buffer> k     :lprevious<CR>:lopen<CR>
+  endfunction
 '''
 
 [[plugins]]
@@ -117,14 +131,11 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'rhysd/clever-f.vim'
-hook_source = '''
-  let g:clever_f_mark_char_color = 'Underlined'
-'''
+repo = 'easymotion/vim-easymotion'
 hook_add = '''
-  let g:clever_f_smart_case = 1
-  let g:clever_f_fix_key_direction = 1
-  let g:clever_f_chars_match_any_signs = ";"
+  let g:EasyMotion_do_mapping = 0 " Disable default mappings
+  nmap f <Plug>(easymotion-overwin-f2)
+  let g:EasyMotion_smartcase = 1
 '''
 
 [[plugins]]
@@ -134,8 +145,8 @@ nnoremap E
 \ :call DWM_New()
 \ :<C-u>Defx -listed -split=vertical -winwidth=50 -direction=topleft -toggle -resume<CR>
 
-autocmd FileType defx call s:defx_my_settings()
-function! s:defx_my_settings() abort
+autocmd FileType defx call s:defx_mappings()
+function! s:defx_mappings() abort
   " Define mappings
   nnoremap <silent><buffer> E
   \ :exec DWM_Close()<CR>

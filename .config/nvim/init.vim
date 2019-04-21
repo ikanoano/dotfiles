@@ -26,12 +26,10 @@ set shiftwidth=2
 set expandtab
 " space char
 set list
-set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,conceal:!
 " For conceal markers.
 let g:tex_conceal=''
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+set conceallevel=1 " concealcursor=niv
 " search
 set ignorecase
 set smartcase
@@ -50,7 +48,7 @@ let g:tex_flavor = "latex"
 autocmd BufEnter term://* :startinsert
 "set termguicolors
 " this setting controls how long to wait (in ms) before fetching type / symbol information.
-set updatetime=200
+set updatetime=1000
 " auto close completion preview.
 autocmd CompleteDone * pclose
 set completeopt=menuone
@@ -83,12 +81,12 @@ nnoremap } }zz
 nnoremap { {zz
 nnoremap > >>
 nnoremap < <<
+nnoremap = ==
 xnoremap > >gv
 xnoremap < <gv
 vnoremap <c-a> <c-a>gv
 vnoremap <c-x> <c-x>gv
 nnoremap x "_x
-nnoremap Q  q
 nnoremap ZZ  <Nop>
 
 autocmd Filetype * set formatoptions-=r
