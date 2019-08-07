@@ -29,7 +29,7 @@ set list
 set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,conceal:!
 " For conceal markers.
 let g:tex_conceal=''
-set conceallevel=1 " concealcursor=niv
+set conceallevel=2 " concealcursor=niv
 " search
 set ignorecase
 set smartcase
@@ -61,6 +61,7 @@ set clipboard=unnamed
 runtime! ./dein/deinit.vim
 
 " mapping
+nnoremap ; :
 nnoremap <S-h> ^
 vnoremap <S-h> ^
 onoremap <S-h> ^
