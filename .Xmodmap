@@ -1,0 +1,5 @@
+clear mod4
+keycode 49 = Super_L
+keycode 101 = Super_R
+add mod4 = Super_L
+add mod4 = Super_R

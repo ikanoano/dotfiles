@@ -61,6 +61,7 @@ hook_add = '''
   \ }, 100)
 
   let g:neomake_tempfile_base_directory='/tmp'
+  let g:neomake_tempfile_dir = '/tmp/custom%:p:h'
   let g:neomake_verilog_enabled_makers=['verilator']
   let g:neomake_verilog_verilator_maker={
         \ 'exe': 'verilator',
