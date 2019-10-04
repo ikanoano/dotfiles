@@ -1,8 +1,8 @@
 urxvt*depth:  24
-urxvt*saveLine:  5000
+urxvt*saveLine:  10000
 urxvt*matcher*button: 1
 
-!urxvt*letterSpace: 0
+urxvt*letterSpace: -7
 urxvt.font:              xft:Cica:            pixelsize=14,xft:Inconsolata\ for\ Powerline:     pixelsize=14,xft:Symbola:pixelsize=14
 urxvt.boldFont:          xft:Cica:Bold:       pixelsize=14,xft:Inconsolata\ for\ Powerline:bold:pixelsize=14,xft:Symbola:pixelsize=14
 urxvt.italicFont:        xft:Cica:     Italic:pixelsize=14,xft:Inconsolata\ for\ Powerline:     pixelsize=14,xft:Symbola:pixelsize=14
@@ -25,8 +25,9 @@ urxvt*utf8: on
 ! -----------------------------------------------------------------------------
 
 ! hard contrast: *background: #f9f5d7
-*background: #fbf1c7
+! medium contrast: *background: #fbf1c7
 ! soft contrast: *background: #f2e5bc
+*background: #f9f5d7
 *foreground: #3c3836
 ! Black + DarkGrey
 *color0:  #fdf4c1

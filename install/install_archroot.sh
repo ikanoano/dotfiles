@@ -4,7 +4,8 @@ hwclock --systohc --utc
 echo -e "en_US.UTF-8 UTF-8\nja_JP.UTF-8 UTF-8" > /etc/locale.gen
 locale-gen
 echo LANG=en_US.UTF-8 > /etc/locale.conf
-echo KEYMAP=us > /etc/vconsole.conf
+#echo KEYMAP=us > /etc/vconsole.conf
+localectl set-keymap --no-convert us
 mkinitcpio -p linux
 passwd
 #intel
@@ -14,6 +15,8 @@ echo \
 "default arch
 timeout 3
 editor no" > /boot/loader/loader.conf
+lsblk
+ls -l /dev/disk/by-partuuid
 echo "root PARTUUID?"
 read ruuid
 echo \
