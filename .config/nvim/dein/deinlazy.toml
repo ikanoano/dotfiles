@@ -44,5 +44,7 @@ on_ft = 'markdown'
 [[plugins]]
 repo = 'Shougo/vinarise.vim'
 on_ft = ['hex', 'no ft']
-hook_add = '''
-'''
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = ['rust']
