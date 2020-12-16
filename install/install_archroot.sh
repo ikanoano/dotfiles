@@ -6,7 +6,7 @@ locale-gen
 echo LANG=en_US.UTF-8 > /etc/locale.conf
 #echo KEYMAP=us > /etc/vconsole.conf
 localectl set-keymap --no-convert us
-mkinitcpio -p linux
+mkinitcpio -P
 passwd
 #intel
 #pacman -S intel-ucode
@@ -25,7 +25,8 @@ linux   /vmlinuz-linux
 initrd  /initramfs-linux.img
 options root=PARTUUID=$ruuid rw" > /boot/loader/entries/arch.conf
 
-systemctl enable systemd-networkd systemd-resolved
+systemctl enable systemd-networkd systemd-resolved sudo neovim
+EDITOR=nvim
 pacman -S zsh lsb-release
 echo "What's your name?"
 read name

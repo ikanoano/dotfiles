@@ -9,8 +9,10 @@ sudo pacman -S --needed arandr scrot xorg-xrdb xorg-xmodmap xorg-server xorg-xin
 sudo pacman -S --needed xorg-xauth xorg-xhost xorg-xsetroot polkit-gnome gnome-keyring
 # sound
 sudo pacman -S --needed alsa-utils pulseaudio-alsa pavucontrol
+sudo sed 's/; default-sample-rate = 44100/default-sample-rate = 192000/g' -i /etc/pulse/daemon.conf
 # net
-sudo pacman -S --needed wget iputils networkmanager network-manager-applet net-tools dnscrypt-proxy
+sudo pacman -S --needed wget iputils networkmanager network-manager-applet net-tools dnscrypt-proxy nftables
+sudo systemctl enable --now nftables
 # dev
 sudo pacman -S --needed git tig neovim python-neovim diff-so-fancy
 export EDITOR=nvim
@@ -46,6 +48,8 @@ wget -nc https://aur.archlinux.org/cgit/aur.git/snapshot/trizen.tar.gz
 tar -xvf trizen.tar.gz
 cd trizen
 makepkg -si --needed
+# util
+trizen -S --needed systemd-boot-pacman-hook
 # font
 trizen -S --needed ttf-cica otf-inconsolata-powerline-git ttf-symbola noto-fonts-emoji
 # app
