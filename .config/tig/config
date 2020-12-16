@@ -17,7 +17,10 @@ set diff-view     = line-number:no,interval=5 text:yes,commit-title-overflow=no
 
 set wrap-lines    = no
 set tab-size      = 2
-#set line-graphics = utf-8
+set line-graphics = utf-8
+set ignore-space  = at-eol
+set ignore-case   = true
+set diff-options  = -m --first-parent
 
 bind generic  h           scroll-left
 bind generic  j           move-down
@@ -77,14 +80,24 @@ bind stage    !           none
 
 bind generic  c           none
 
+bind main     cb          ?git checkout %(branch)
+bind main     co          ?git checkout %(commit)
+bind main     cnb         !git checkout -b %(prompt)
+bind main     cp          ?git cherry-pick %(commit)
+bind main     M           ?git merge %(branch)
+
+bind diff     tl          !nvim %(file) -c "call TimeLapse()"
+
+bind refs     cb          ?git checkout %(branch)
+bind refs     co          ?git checkout %(commit)
+bind refs     cnb         !git checkout -b %(prompt)
+bind refs     cp          ?git cherry-pick %(commit)
+bind refs     M           ?git merge %(branch)
+
 bind status   cm          !git commit
 bind status   ca          !git commit --amend
-bind main     cp          ?git cherry-pick %(commit)
-bind main     cb          !git checkout -b %(prompt)
-bind refs     cb          !git checkout -b %(prompt)
+
+bind blob     tl          !nvim %(file) -c "call TimeLapse()"
+
 bind stash    ss          ?git stash save %(stash)
 bind stash    sp          ?git stash pop %(stash)
-bind main     co          ?git checkout %(commit)
-bind refs     co          ?git checkout %(branch)
-bind main     M           ?git merge %(branch)
-bind refs     M           ?git merge %(branch)
