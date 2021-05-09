@@ -5,4 +5,4 @@ mkfs.btrfs -L linux /dev/sda2
 mount /dev/sda2 /mnt
 mount /dev/sda1 /mnt/boot
 
-pacstrap /mnt base linux linux-firmware btrfs-progs
+pacstrap /mnt base base-devel linux linux-firmware btrfs-progs
