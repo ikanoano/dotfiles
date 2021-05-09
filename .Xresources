@@ -3,10 +3,10 @@ urxvt*saveLine:  10000
 urxvt*matcher*button: 1
 
 urxvt*letterSpace: -7
-urxvt.font:              xft:Cica:            pixelsize=14,xft:Inconsolata\ for\ Powerline:     pixelsize=14,xft:Symbola:pixelsize=14
-urxvt.boldFont:          xft:Cica:Bold:       pixelsize=14,xft:Inconsolata\ for\ Powerline:bold:pixelsize=14,xft:Symbola:pixelsize=14
-urxvt.italicFont:        xft:Cica:     Italic:pixelsize=14,xft:Inconsolata\ for\ Powerline:     pixelsize=14,xft:Symbola:pixelsize=14
-urxvt.bolditalicFont:    xft:Cica:Bold:Italic:pixelsize=14,xft:Inconsolata\ for\ Powerline:bold:pixelsize=14,xft:Symbola:pixelsize=14
+urxvt.font:              xft:Cica:            pixelsize=16,xft:Inconsolata\ for\ Powerline:     pixelsize=16,xft:Symbola:pixelsize=16
+urxvt.boldFont:          xft:Cica:Bold:       pixelsize=16,xft:Inconsolata\ for\ Powerline:bold:pixelsize=16,xft:Symbola:pixelsize=16
+urxvt.italicFont:        xft:Cica:     Italic:pixelsize=16,xft:Inconsolata\ for\ Powerline:     pixelsize=16,xft:Symbola:pixelsize=16
+urxvt.bolditalicFont:    xft:Cica:Bold:Italic:pixelsize=16,xft:Inconsolata\ for\ Powerline:bold:pixelsize=16,xft:Symbola:pixelsize=16
 urxvt*transparent: false
 urxvt*shading: 15
 urxvt*fading: 10
