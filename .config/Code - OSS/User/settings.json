@@ -1,0 +1,74 @@
+{
+  "window.zoomLevel": 1.6,
+  "editor.fontFamily": "'Cica', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.inlineHints.fontFamily": "'Cica', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.lineNumbers": "relative",
+  "editor.tabSize": 2,
+  "editor.minimap.enabled": true,
+
+  "editor.cursorSurroundingLines" : 4,
+  "editor.autoClosingBrackets": "beforeWhitespace",
+  "editor.autoClosingQuotes": "beforeWhitespace",
+  "editor.autoIndent": "advanced",
+  "editor.quickSuggestionsDelay": 5,
+
+  // Theme
+  "workbench.colorTheme": "Gruvbox Material Light",
+  "gruvboxMaterial.lightContrast": "hard",
+  "gruvboxMaterial.lightWorkbench": "high-contrast",
+
+  "files.exclude": {
+    "**/.git": true,
+    "**/node_modules": true,
+  },
+
+  // vim settings
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.history": 1000,
+  "vim.mouseSelectionGoesIntoVisualMode": false,
+  "vim.visualstar": true,
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {"before": [";",";"], "commands": ["editor.action.triggerSuggest"]},
+//  {"before": ["<BS>"],  "commands": ["deleteLeft"]},        ///
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    { "before": [";"],          "after": [":"] },
+    { "before": ["H"],          "after": ["^"] },
+    { "before": ["L"],          "after": ["$"] },
+    { "before": ["K"],          "after": ["%"] },
+    { "before": ["<Space>"],    "after": ["i", " ", "<Esc>", "l"] },
+//  { "before": ["<Tab>"],      "after": ["i", "<Tab>", "<Esc>", "l"] },
+    { "before": ["<C-y>"],      "after": ["2", "<C-y>"] },      //  a
+    { "before": ["<C-e>"],      "after": ["2", "<C-e>"] },
+    { "before": [">"],          "after": [">",">"] },
+    { "before": ["ZZ"],         "after": ["<Nop>"] },
+    { "before": ["<"],          "after": ["<","<"] },
+    { "before": ["f"],          "after": ["<leader>","<leader>","/"] },
+    { "before": ["<C-c>"],      "after": [":", "q", "<CR>"]},
+    { "before": ["<C-n>"],      "after": [":", "v", "s", "p", "<CR>"]},
+    //{ "before": ["ctrl+w", "j"],"commands": [{"command": "workbench.action.terminal.focus"}]},
+    //{ "before": ["ctrl+`"], "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"}
+//  { "before": ["E"],          "commands": ["workbench.view.explorer"],       "when":"sideBarVisible" },
+    { "before": ["E"],          "commands": ["workbench.action.toggleSidebarVisibility"]},//,       "when":"sideBarVisible" },
+    { "before": ["<C-j>"],      "commands": ["workbench.action.focusNextGroup"],                "when":"!textCompareEditorActive" },
+    { "before": ["<C-k>"],      "commands": ["workbench.action.focusPreviousGroup"],            "when":"!textCompareEditorActive" },
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    { "before": ["H"],          "after": ["^"] },
+    { "before": ["L"],          "after": ["$"] },
+    { "before": ["K"],          "after": ["%"] },
+    { "before": ["<C-a>"],      "after": ["<C-a>","g","v"] },
+    { "before": ["<C-x>"],      "after": ["<C-x>","g","v"] },
+  ],
+  "vim.operatorPendingModeKeyBindingsNonRecursive": [
+    { "before": ["H"],          "after": ["^"] },
+    { "before": ["L"],          "after": ["$"] },
+    { "before": ["K"],          "after": ["%"] },
+  ],
+  "vim.easymotionMarkerBackgroundColor":          "#000000",
+  "vim.easymotionMarkerForegroundColorOneChar":   "#FFFFFF",
+}
