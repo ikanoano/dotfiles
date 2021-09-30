@@ -4,13 +4,15 @@
   "editor.inlineHints.fontFamily": "'Cica', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "editor.lineNumbers": "relative",
   "editor.tabSize": 2,
-  "editor.minimap.enabled": true,
+  "editor.minimap.enabled": false,
 
   "editor.cursorSurroundingLines" : 4,
   "editor.autoClosingBrackets": "beforeWhitespace",
   "editor.autoClosingQuotes": "beforeWhitespace",
   "editor.autoIndent": "advanced",
   "editor.quickSuggestionsDelay": 5,
+
+  "workbench.editor.wrapTabs": true,
 
   // Theme
   "workbench.colorTheme": "Gruvbox Material Light",
@@ -64,7 +66,7 @@
     { "before": ["<C-a>"],      "after": ["<C-a>","g","v"] },
     { "before": ["<C-x>"],      "after": ["<C-x>","g","v"] },
   ],
-  "vim.operatorPendingModeKeyBindingsNonRecursive": [
+  "vim.operatorPendingModeKeyBindingsNonRecursive": [ // ex: dK
     { "before": ["H"],          "after": ["^"] },
     { "before": ["L"],          "after": ["$"] },
     { "before": ["K"],          "after": ["%"] },

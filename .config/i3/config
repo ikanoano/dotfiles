@@ -7,7 +7,8 @@ font pango:Cica 12
 floating_modifier $mod
 
 # auto start
-exec --no-startup-id ~/.screenlayout/nvidia.sh
+#exec --no-startup-id ~/.screenlayout/nvidia.sh
+exec --no-startup-id ~/.screenlayout/nouveau.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id fcitx
 #exec --no-startup-id xsetroot -solid SlateGray4
@@ -59,8 +60,8 @@ bindsym $mod+Shift+g        move scratchpad
 bindsym $mod+g              scratchpad show
 
 # workspace
-set $leftscreen   HDMI-0
-set $centerscreen  DP-0
+set $leftscreen   HDMI-1
+set $centerscreen  DP-1
 workspace 1                 output $leftscreen
 workspace 2                 output $leftscreen
 workspace 3                 output $leftscreen
