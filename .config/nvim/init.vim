@@ -57,10 +57,8 @@ set nohidden
 " clipboard
 set clipboard=unnamed
 
-"load plugins
+" load plugins
 runtime! ./dein/deinit.vim
-packadd termdebug
-let g:termdebug_wide=160
 
 " mapping
 nnoremap ; :

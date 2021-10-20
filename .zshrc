@@ -4,34 +4,41 @@ zplug "zsh-users/zsh-completions", as:plugin
 zplug "zsh-users/zsh-syntax-highlighting", as:plugin, defer:2
 zplug "zplug/zplug", hook-build:'zplug --self-manage', as:plugin
 zplug "agnoster/agnoster-zsh-theme", as:theme
+zplug "junegunn/fzf", \
+    from:gh-r, \
+    as:command, \
+    use:"*linux*amd64*"
 zplug load
 
 export HISTFILE=~/.zsh_history
-export HISTSIZE=100000
-export SAVEHIST=100000
-setopt SHARE_HISTORY
-setopt HIST_IGNORE_DUPS
+export HISTSIZE=10000
+export SAVEHIST=10000
+setopt APPEND_HISTORY
+setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
+setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 
 setopt CORRECT            # Correct commands
+unsetopt CORRECT_ALL
 setopt COMPLETE_IN_WORD   # Complete from both ends of a word.
 setopt ALWAYS_TO_END      # Move cursor to the end of a completed word.
 setopt PATH_DIRS          # Perform path search even on command names with slashes.
 setopt AUTO_MENU          # Show completion menu on a successive tab press.
 setopt AUTO_LIST          # Automatically list choices on ambiguous completion.
 setopt AUTO_PARAM_SLASH   # If completed parameter is a directory, add a trailing slash.
-unsetopt MENU_COMPLETE    # Do not autoselect the first completion entry.
+setopt MENU_COMPLETE
+setopt MAGIC_EQUAL_SUBST
 
 # coloring completion
-eval "$(dircolors --sh)"
+#eval "$(dircolors --sh)"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # case insensitive
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 # Fuzzy match mistyped completions.
 zstyle ':completion:*' completer _expand _complete _match _approximate
 zstyle ':completion:*:match:*' original only
-zstyle ':completion:*:approximate:*' max-errors 1 numeric
+zstyle ':completion:*:approximate:*' max-errors 3 numeric
 zstyle ':completion:*' menu select
-setopt MENU_COMPLETE
 zmodload zsh/complist
 
 # Use hjkl in completion menu.
@@ -46,10 +53,8 @@ bindkey -M menuselect '^h' backward-delete-char
 alias vim='nvim'
 alias vimdiff="nvim -d"
 alias gdb='gdb -q'
-alias gst='git status'
-alias ga='git add'
 alias tig='tig --all'
-alias ls='ls --group-directories-first --color=auto'
+alias ls='ls --group-directories-first --color=auto -h'
 alias la="${aliases[ls]:-ls} -al"
 alias rm='rm -i'
 alias mv='mv -i'
@@ -58,19 +63,18 @@ alias cp='cp -i'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
 
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-#export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd -Dsun.java2d.opengl=true'
-#export _JAVA_AWT_WM_NONREPARENTING=1
-#export JAVA_FONTS=/usr/share/fonts/TTF
-export RUST_SRC_PATH='/usr/local/src/rustc/src'
 export PATH=$PATH:/usr/local/lib
 export PATH=$PATH:~/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 bindkey -v
+bindkey -r '\e/' # to remove esc -> / lag
 bindkey -M vicmd "H" vi-first-non-blank
 bindkey -M vicmd "L" vi-end-of-line
 bindkey -M vicmd "/" vi-history-search-backward
