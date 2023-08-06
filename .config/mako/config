@@ -1,0 +1,18 @@
+font=Cica 14
+text-color=#eeeeeeff
+border-size=3
+
+[urgency=low]
+background-color=#093145f8
+border-color=#093145ff
+default-timeout=5000
+
+[urgency=normal]
+background-color=#829356f8
+border-color=#829356ff
+default-timeout=10000
+
+[urgency=high]
+background-color=#c2571af8
+border-color=#c2571aff
+default-timeout=0

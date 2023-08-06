@@ -22,3 +22,5 @@
   #cm = commit -m
 [pull]
 	ff = only
+[init]
+	defaultBranch = main

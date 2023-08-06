@@ -31,9 +31,10 @@ setopt MENU_COMPLETE
 setopt MAGIC_EQUAL_SUBST
 
 # coloring completion
-#eval "$(dircolors --sh)"
+eval "$(dircolors --sh)"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # case insensitive
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # Fuzzy match mistyped completions.
 zstyle ':completion:*' completer _expand _complete _match _approximate
 zstyle ':completion:*:match:*' original only
@@ -70,7 +71,8 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 
 export PATH=$PATH:/usr/local/lib
-export PATH=$PATH:~/bin
+export PATH=$PATH:/home/ikanoano/bin
+export PATH=$PATH:/home/ikanoano/.cargo/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 bindkey -v

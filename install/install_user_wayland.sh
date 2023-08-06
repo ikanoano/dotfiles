@@ -86,10 +86,10 @@ trizen -S --needed ttf-cica otf-inconsolata-powerline-git ttf-symbola noto-fonts
 #HandleHibernateKey=suspend
 #HandleLidSwitch=suspend\" >> /etc/systemd/logind.conf"
 #
-## cpu
-#sudo sh -c \
-#"echo \"governor='powersave'\" >> /etc/default/cpupower"
-#sudo systemctl enable --now cpupower.service
+# cpu
+sudo sh -c \
+"echo \"governor='powersave'\" >> /etc/default/cpupower"
+sudo systemctl enable --now cpupower.service
 #
 ### ssd
 ##sudo systemctl enable --now fstrim.timer

@@ -1,5 +1,5 @@
 {
-  "window.zoomLevel": 1.6,
+  "window.zoomLevel": 2,
   "editor.fontFamily": "'Cica', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "editor.inlineHints.fontFamily": "'Cica', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "editor.lineNumbers": "relative",
@@ -73,4 +73,15 @@
   ],
   "vim.easymotionMarkerBackgroundColor":          "#000000",
   "vim.easymotionMarkerForegroundColorOneChar":   "#FFFFFF",
+
+  // turn off IME at transition from Insert mode to Normal mode
+  "vim.autoSwitchInputMethod.enable": true,
+  "vim.autoSwitchInputMethod.defaultIM": "-c",
+  "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/fcitx5-remote",
+  "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/fcitx5-remote {im}",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "rust-analyzer.inlayHints.typeHints": false,
+  "remote.SSH.configFile": "/home/ikanoano/.ssh/config",
 }
